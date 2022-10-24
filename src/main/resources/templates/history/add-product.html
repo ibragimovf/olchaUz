@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Table 06</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="h5 mb-4 text-center">Add product</h3>
+            <form class="form-field" action="/users/add" enctype="multipart/form-data" method="post">
+                <input name="name" placeholder="Enter name title: ..." type="text">
+                <input name="price" placeholder="Enter price text: ..." type="number">
+                <input name="imgUrl" type="file">
+                <select name="category" class="form-control"
+                        th:each="category, iter : ${categoryList}">
+                    <option th:value="${category.getId()}" th:text="${category.getName()}"></option>
+                </select>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="../static/image/jquery.min.js"></script>
+<script src="../static/image/popper.js"></script>
+<script src="../static/image/bootstrap.min.js"></script>
+<script src="../static/image/main.js"></script>
+
+</body>
+</html>
+
